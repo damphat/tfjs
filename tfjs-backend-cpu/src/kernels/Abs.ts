@@ -34,9 +34,8 @@ export const abs = (args: {inputs: AbsInputs, backend: MathBackendCPU}) => {
 
   assertNotComplex(x, 'abs');
 
-  let resultValues = new Float32Array(util.sizeFromShape(x.shape));
   const values = cpuBackend.data.get(x.dataId).values as TypedArray;
-  resultValues = simpleAbsImpl(values);
+  const resultValues = simpleAbsImpl(values);
 
   return cpuBackend.makeOutput(resultValues, x.shape, x.dtype);
 };
