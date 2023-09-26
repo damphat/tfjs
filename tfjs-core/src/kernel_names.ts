@@ -143,7 +143,7 @@ export type BitwiseAndInputs = BinaryInputs;
 
 export const BroadcastTo = 'BroadcastTo';
 export type BroadcastToInputs = Pick<NamedTensorInfoMap, 'x'>;
-export interface BroadCastToAttrs {
+export interface BroadcastToAttrs {
   shape: number[];
   inputShape: number[];  // for gradient
 }

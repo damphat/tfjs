@@ -15,7 +15,7 @@
  * =============================================================================
  */
 
-import {BroadcastTo, BroadCastToAttrs} from '../kernel_names';
+import {BroadcastTo, BroadcastToAttrs} from '../kernel_names';
 import {GradConfig, NamedAttrMap} from '../kernel_registry';
 import {sum} from '../ops/sum';
 import {Tensor} from '../tensor';
@@ -23,11 +23,11 @@ import {Tensor} from '../tensor';
 export const broadcastToGradConfig: GradConfig = {
   kernelName: BroadcastTo,
   gradFunc: (dy: Tensor, saved: Tensor[], attrs: NamedAttrMap) => {
-    const broadCastToAttrs: BroadCastToAttrs =
-        attrs as unknown as BroadCastToAttrs;
+    const broadcastToAttrs: BroadcastToAttrs =
+        attrs as unknown as BroadcastToAttrs;
 
-    const inputShape = broadCastToAttrs.inputShape;
-    const outputShape = broadCastToAttrs.shape;
+    const inputShape = broadcastToAttrs.inputShape;
+    const outputShape = broadcastToAttrs.shape;
 
     const reps: number[] = Array.from(outputShape);
     for (let i = inputShape.length - 1; i >= 0; i--) {
